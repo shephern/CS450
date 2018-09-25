@@ -2,9 +2,13 @@ import struct
 import bpy
 from bpy import context
 
-# Exports an object in OpenGL
-# Allows you to model in Blender and export as Quads
 # 
+# Only tested for v2.72, but might work on others
+# If you want to use materials, set the engine to Cycles, 
+    # and just assign diffuse mats to the polys
+# Exports in OpenGL, which then can be pasted into your environment
+# Currently only works for objects made entirely of planar quads
+    # That will change, just haven't yet
 
 def openGL_exporter(context, filepath, use_some_setting):
     print("running write_some_data...")
@@ -77,7 +81,7 @@ from bpy.types import Operator
 class ExportSomeData(Operator, ExportHelper):
     """This appears in the tooltip of the operator and in the generated docs"""
     bl_idname = "export_test.some_data"  # important since its how bpy.ops.import_test.some_data is constructed
-    bl_label = "Export OpenGL Text"
+    bl_label = "Export OpenGL"
 
     # ExportHelper mixin class uses this
     filename_ext = ".cpp"
@@ -85,6 +89,22 @@ class ExportSomeData(Operator, ExportHelper):
     filter_glob = StringProperty(
             default="*.cpp",
             options={'HIDDEN'},
+            )
+
+    # List of operator properties, the attributes will be assigned
+    # to the class instance from the operator settings before calling.
+    use_setting = BoolProperty(
+            name="Example Boolean",
+            description="Example Tooltip",
+            default=True,
+            )
+
+    type = EnumProperty(
+            name="Example Enum",
+            description="Choose between two items",
+            items=(('OPT_A', "First Option", "Description one"),
+                   ('OPT_B', "Second Option", "Description two")),
+            default='OPT_A',
             )
 
     def execute(self, context):
