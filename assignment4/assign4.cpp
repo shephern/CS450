@@ -43,8 +43,8 @@
 
 // title of these windows:
 
-const char *WINDOWTITLE = { "Assignment 3: Nathan Shepherd" };
-const char *GLUITITLE   = { "Texture Manipulation" };
+const char *WINDOWTITLE = { "Assignment 4: Nathan Shepherd" };
+const char *GLUITITLE   = { "Lighting and Shading" };
 
 float Time;
 #define MS_PER_CYCLE	10000;
@@ -240,8 +240,6 @@ int		MainWindow;				// window id for main graphics window
 float	Scale;					// scaling factor
 int		WhichColor;				// index into Colors[ ]
 int		WhichProjection;		// ORTHO or PERSP
-int 	WhichMode;
-int 	WhichTexture;
 int		Xmouse, Ymouse;			// mouse values
 float	Xrot, Yrot;				// rotation angles in degrees
 

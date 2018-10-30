@@ -1,5 +1,5 @@
 ---
-title: "CS 450: Assignment 3 with EC \"Texturing\""
+title: "CS 450: Assignment 4"
 author: Nathan Shepherd (shephern@oregonstate.edu)
 geometry: margin=1in
 fontsize: 11pt
